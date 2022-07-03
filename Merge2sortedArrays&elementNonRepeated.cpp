@@ -1,3 +1,8 @@
+input
+arr1=[2,3,3,4,5,7,9];
+arr2=[1,2,4,5,7,7,9];
+output
+arr3=[1,2,3,4,5,7,9]
 #include <iostream>
 
 using namespace std;
