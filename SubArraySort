@@ -1,0 +1,49 @@
+/******************************************************************************
+
+input
+{1,2,3,4,5,8,7,6,9,10,11}
+output
+{5,7}
+
+
+*******************************************************************************/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a[]={1,2,3,4,5,8,7,6,9,10,11};
+    int i,n=sizeof(a)/sizeof(a[1]);
+    int smaller=9999,larger=-99999;
+    for(i=0;i<n;i++)
+    {
+        if(i==0 && a[1]<a[i]){
+            smaller=min(smaller,a[i]);
+            larger=max(larger,a[i]);
+        }
+        else if(i==n-1 && a[n-1]<a[i-1]){
+            smaller=min(smaller,a[i]);
+            larger=max(larger,a[i]);
+        }
+        else if(i!=0 and i!=n-1 and (a[i]<a[i-1] || a[i]>a[i+1])){
+            smaller=min(smaller,a[i]);
+            larger=max(larger,a[i]);
+        }
+    }
+    int left=0;
+    while(a[left]<smaller)
+    {
+        left++;
+    }
+    int right=n-1;
+    while(a[right]>larger)
+    {
+        right--;
+    }
+    cout<<left<<" "<<right<<endl;
+    cout<<smaller<<" "<<larger;
+
+    return 0;
+}
